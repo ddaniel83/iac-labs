@@ -67,7 +67,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Lint
       run: |
-        poetry run task lint
+        source $VENV poetry run task lint
         
   formatter:
 
@@ -98,7 +98,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Formatter test
       run: |
-        poetry run task formatter
+        source $VENV poetry run task formatter
         
   security:
 
@@ -129,7 +129,7 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Security test
       run: |
-        poetry run task security
+        source $VENV poetry run task security
         
   unittests:
 
@@ -158,4 +158,4 @@ jobs:
         key: ${{ runner.os }}-venv
     - name: Test with pytest
       run: |
-        poetry run task test
+        source $VENV poetry run task test
