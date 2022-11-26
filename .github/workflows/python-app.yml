@@ -28,11 +28,14 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /home/runner/work/iac-labs/example-app/.venv
+        path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
         key: ${{ runner.os }}-venv
         
   lint:
@@ -53,11 +56,14 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /home/runner/work/iac-labs/example-app/.venv
+        path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
         key: ${{ runner.os }}-venv
     - name: Lint
       run: |
@@ -81,11 +87,14 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /home/runner/work/<path>/iac-labs/.venv
+        path: /home/runner/work/<path>/iac-labs/iac-labs/.venv
         key: ${{ runner.os }}-venv
     - name: Formatter test
       run: |
@@ -109,6 +118,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -135,11 +147,14 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+      with:
+        virtualenvs-create: true
+        virtualenvs-in-project: true
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
       with:
-        path: /home/runner/work/iac-labs/example-app/.venv
+        path: /home/runner/work/iac-labs/iac-labs/example-app/.venv
         key: ${{ runner.os }}-venv
     - name: Test with pytest
       run: |
