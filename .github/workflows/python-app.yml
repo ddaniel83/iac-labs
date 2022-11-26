@@ -20,7 +20,72 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.3
+    - name: Install dependencies
+      run: |
+        poetry install --no-root
+        
+  lint:
 
+    runs-on: ubuntu-latest
+    concurrency:
+      group: analysis
+    
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.3
+    - name: Lint with flake8
+      run: |
+        poetry run task lint
+        
+  formatter:
+
+    runs-on: ubuntu-latest
+    concurrency:
+      group: analysis
+    
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.3
+    - name: Lint with flake8
+      run: |
+        poetry run task lint
+        
+  security:
+
+    runs-on: ubuntu-latest
+    concurrency:
+      group: analysis
+    
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: build
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
@@ -35,7 +100,23 @@ jobs:
     - name: Lint with flake8
       run: |
         poetry run task lint
+        
+  unittests:
+
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./example-app
+    needs: ['lint','formatter','security']
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install Poetry Action
+      uses: snok/install-poetry@v1.3.3
     - name: Test with pytest
       run: |
         poetry run task test
-
