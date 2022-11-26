@@ -28,6 +28,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+    - name: Install dependencies
+      run: |
+        source $VENV poetry install --no-root
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
@@ -56,6 +59,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+    - name: Install dependencies
+      run: |
+        source $VENV poetry install --no-root
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
@@ -87,6 +93,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+    - name: Install dependencies
+      run: |
+        source $VENV poetry install --no-root
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
@@ -118,6 +127,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+    - name: Install dependencies
+      run: |
+        source $VENV poetry install --no-root
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
@@ -147,6 +159,9 @@ jobs:
         python-version: "3.10"
     - name: Install Poetry Action
       uses: snok/install-poetry@v1.3.3
+    - name: Install dependencies
+      run: |
+        source $VENV poetry install --no-root
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
