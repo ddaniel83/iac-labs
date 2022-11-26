@@ -33,7 +33,7 @@ jobs:
         virtualenvs-in-project: true
     - name: Install dependencies
       run: |
-        source $VENV poetry install --no-root
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -64,7 +64,7 @@ jobs:
         virtualenvs-in-project: true
     - name: Install dependencies
       run: |
-        source $VENV poetry install --no-root
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -98,7 +98,7 @@ jobs:
         virtualenvs-in-project: true
     - name: Install dependencies
       run: |
-        source $VENV poetry install --no-root
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -132,7 +132,7 @@ jobs:
         virtualenvs-in-project: true
     - name: Install dependencies
       run: |
-        source $VENV poetry install --no-root
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
@@ -164,7 +164,7 @@ jobs:
         virtualenvs-in-project: true
     - name: Install dependencies
       run: |
-        source $VENV poetry install --no-root
+        poetry install --no-root
     - name: Cache build venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
